@@ -1,0 +1,7 @@
+#media {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px;
+  background: rgb(0, 0, 255, 0.5);
+}
