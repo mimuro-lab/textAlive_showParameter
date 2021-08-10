@@ -118,7 +118,7 @@ const animateChar = function (now, unit) {
 
 // TextAlive ホストとの接続時に呼ばれる
 // 楽曲を読み込む。
-// 楽曲：First Note by blueさん（https://www.youtube.com/watch?v=bMtYf3R0zhY）。神曲。
+// 楽曲：その心に灯る色は / ラテルネさん（https://www.youtube.com/watch?v=bMtYf3R0zhY）。神曲。
 function onAppReady(app){
 	player.createFromSongUrl("https://www.youtube.com/watch?v=bMtYf3R0zhY");
 	document.querySelector("#onAppReady").textContent = "準備完了";
