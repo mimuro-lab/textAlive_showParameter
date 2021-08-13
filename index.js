@@ -117,7 +117,12 @@ const animateChar = function (now, unit) {
 };
 
 // TextAlive ホストとの接続時に呼ばれる
+<<<<<<< HEAD
 // 楽曲を読み込む
+=======
+// 楽曲を読み込む。
+// 楽曲：その心に灯る色は / ラテルネさん（https://www.youtube.com/watch?v=bMtYf3R0zhY）。神曲。
+>>>>>>> b10cbf90b2a1c9ab171e4124cbf4555ff066e4b6
 function onAppReady(app){
 	player.createFromSongUrl("https://www.youtube.com/watch?v=bMtYf3R0zhY");
 	//player.createFromSongUrl("https://www.youtube.com/watch?v=ygY2qObZv24");
