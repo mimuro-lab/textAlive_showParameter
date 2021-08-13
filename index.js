@@ -5,9 +5,9 @@ import { Player, IRepetitiveSegments } from "textalive-app-api";
 // https://developer.textalive.jp/packages/textalive-app-api/interfaces/playeroptions.html
 const player = new Player({
 
-	// アプリの情報を指定する。実行する際は、開発者ページで発行したトークンを使う。
+	// アプリの情報を指定する。
 	// https://developer.textalive.jp/packages/textalive-app-api/interfaces/playerappoptions.html
-	app: {token: "your token"},
+	app: {token: "cxp44myZUreTs0lG", appAuthor: "mimuro_syunya", appName: "textAlive_text"},
 	
 	// 読み込むフォントを指定する。nullだとすべて読み込む。
 	//fontFamilies: null,
@@ -18,7 +18,7 @@ const player = new Player({
 
 	// 音源メディアの情報を表示する位置を指定する。座標指定ではない。でもすげぇ。
 	// https://developer.textalive.jp/packages/textalive-app-api/globals.html#playerbannerposition
-	//mediaBannerPosition: "buttom right",
+	mediaBannerPosition: "buttom right",
 
 	// 音源メディアを指定する。
 	mediaElement: document.querySelector("#media"),
@@ -117,16 +117,27 @@ const animateChar = function (now, unit) {
 };
 
 // TextAlive ホストとの接続時に呼ばれる
-// 楽曲を読み込む。
-// 楽曲：First Note by blueさん（https://www.youtube.com/watch?v=bMtYf3R0zhY）。神曲。
+// 楽曲を読み込む
 function onAppReady(app){
 	player.createFromSongUrl("https://www.youtube.com/watch?v=bMtYf3R0zhY");
+	//player.createFromSongUrl("https://www.youtube.com/watch?v=ygY2qObZv24");
 	document.querySelector("#onAppReady").textContent = "準備完了";
 }
 
 // 動画データが読み込まれたとき
 // 楽曲情報を表示する。アニメーション関数を割り当てる。
 function onVideoReady(v){
+
+	// サビ情報を読み取る
+	var segments_contenst = "";
+	// for文でarrayをすべてたどる
+	// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...of
+	for(const element of player.data.songMap.segments){
+		segments_contenst = segments_contenst + String(element.chorus) + "(" + String(element.duration) + " [ms]), ";
+	}
+
+	document.querySelector("#segments").textContent = segments_contenst;
+
 	document.querySelector("#song_name").textContent = player.data.song.name;
 	document.querySelector("#song_permalink").textContent = player.data.song.permalink;
 	document.querySelector("#song_artist").textContent = player.data.song.artist.name;
