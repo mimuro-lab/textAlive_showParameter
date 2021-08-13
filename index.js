@@ -118,7 +118,6 @@ const animateChar = function (now, unit) {
 
 // TextAlive ホストとの接続時に呼ばれる
 <<<<<<< HEAD
-// 楽曲を読み込む
 =======
 // 楽曲を読み込む。
 // 楽曲：その心に灯る色は / ラテルネさん（https://www.youtube.com/watch?v=bMtYf3R0zhY）。神曲。
